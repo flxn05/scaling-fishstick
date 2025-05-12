@@ -103,7 +103,50 @@ h2 {
   height: auto;
   margin: 4px;
   margin-block-start: 8px;
+  transition: all .15s ease-in-out;
 }
 .zyklen h2{
   margin-bottom: 24px;
+}
+
+/*hover fx*/
+
+.leftGrid > div:hover,
+.rightGrid > div:hover,
+.lowerGrid > div:hover {
+  background-color: rgba(255, 255, 255, 0.349);
+}
+h5 {
+  font-size: 1.2rem;
+}
+aside {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.171);
+  width: calc(100vw - 44px);
+  height: auto;
+  margin: 4px;
+  margin-block-start: 8px;
+  transition: all .15s ease-in-out;
+  margin-block: 16px;
+}
+
+
+#sleepSection {
+  display: none;
+}
+
+.primaryButton {
+  padding-inline: 2rem;
+  padding-block: .5rem;
+  border-radius: 18px;
+  border: none;
+  font-weight: bold;
+  font-family: montserrat;
+  background-color: rgb(29, 170, 93);
+  color: var(--primary);
+}
+
+aside h3 {
+  font-weight: bold;
 }
