@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.json">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+      console.log('Service Worker registered with scope:', registration.scope);
+    }).catch(function(error) {
+      console.log('Service Worker registration failed:', error);
+    });
+  }
+</script>
 </head>
 <body>
 
@@ -19,9 +29,10 @@
     <img src="product.png" alt="img" id="quest">
   </div>
   <h1>NiteSight</h1>
-  <h4>Verbunden</h4>
+  <h4 class="searching">Suchen...</h4>
+  <h4 class="connected" style="display: none;">Verbunden</h4>
 
-  <section id="sleepSection" class="hidden">
+  <section id="sleepSection">
     <div class="upperGrid">
       <div class="leftGrid">
         <div class="score">
@@ -29,48 +40,47 @@
           <h2>88</h2></div>
         <div class="puls">
           <h3>Puls</h3>
-          <h2>64 bpm</h2>
+          <h2>69 bpm</h2>
         </div>
         <div class="dauer">
           <h3>Dauer</h3>
-          <h2>8:43</h2>
+          <h2>9:41</h2>
         </div>
       </div>
 
       <div class="rightGrid">
         <div class="zyklen">
           <div class="leicht">
-            <h3>Leicht</h3>
-            <h2>5:24 min</h2>
+            <h3>Leicht (in Std.)</h3>
+            <h2>4:20</h2>
           </div>
           <div class="tief">
-            <h3>Tief</h3>
-            <h2>3:53 min</h2>
+            <h3>Tief (in Std.)</h3>
+            <h2>3:53</h2>
           </div>
           <div class="rem">
-            <h3>REM</h3>
-            <h2>2:59 min</h2>
+            <h3>REM (in Std.)</h3>
+            <h2>2:59</h2>
           </div>
         </div>
       </div>
 
     </div>
 
-
     <div class="lowerGrid">
       <div class="eingeschlafen">
         <h3>Eingeschlafen</h3>
-        <h2>22:03</h2>
+        <h2>23:30</h2>
       </div>
       <div class="aufgewacht">
         <h3>Aufgewacht</h3>
-        <h2>7:34</h2>
+        <h2>9:11</h2>
       </div>
     </div>
   </section>
 
 
-  <section id="tippSection" class="hidden">
+  <section id="tippSection">
     <h5>So verbesserst du deinen Schlaf:</h5>
     <aside>
       <h3>Stressreduktion</h3>
@@ -102,8 +112,17 @@
 
 <section id="proSection">
   <aside>
-    <h2>pro kaufen</h2>
-    <h3>Mit der Pro Version ....</h3>
+    <h2>NiteSight Pro</h2>
+    <p>NiteSight Pro gibt dir <i>alle </i>Funktionen der Gratis Version <i>plus</i>:
+      <li>Genauere Messwertanalyse</li>
+      <li>Personalisiertere Tipps</li>
+      <li>Erweiterten Kundensupport</li>
+    </p>
+    <div id="buy">
+      <h3>einmalig</h3>
+      <h2>€ 4,99</h2>
+    <button class="primaryButton">Jetzt kaufen</button>
+    </div>
   </aside>
 </section>
 
@@ -112,5 +131,34 @@
     <div id="tipps"><img src="tipps.png"></div>
     <div id="pro"><img src="pro.png"></div>
   </footer>
+  <script>
+  document.getElementById("analyse").addEventListener("click", function() {
+    document.getElementById("sleepSection").style.display = "block";
+    document.getElementById("tippSection").style.display = "none";
+    document.getElementById("proSection").style.display = "none";
+  });
+
+  document.getElementById("tipps").addEventListener("click", function() {
+    document.getElementById("sleepSection").style.display = "none";
+    document.getElementById("tippSection").style.display = "block";
+    document.getElementById("proSection").style.display = "none";
+  });
+
+  document.getElementById("pro").addEventListener("click", function() {
+    document.getElementById("sleepSection").style.display = "none";
+    document.getElementById("tippSection").style.display = "none";
+    document.getElementById("proSection").style.display = "block";
+  });
+
+
+  setTimeout(() => {
+  const searching = document.querySelector('.searching');
+  const connected = document.querySelector('.connected');
+
+  searching.classList.add('hidden');
+  connected.style.display = 'block';
+}, 1500);
+
+</script>
 </body>
 </html>
