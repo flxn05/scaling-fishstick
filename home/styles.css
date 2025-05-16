@@ -268,3 +268,8 @@ aside {
 aside h3 {
   font-weight: bold;
 }
+#product {
+  height:96px;
+  width: 144px;
+  object-fit: cover;
+}
