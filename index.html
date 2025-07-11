@@ -11,7 +11,7 @@
 <link rel="manifest" href="manifest.json">
 <script>
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+    navigator.serviceWorker.register('./service-worker.js').then(function(registration) {
       console.log('Service Worker registered with scope:', registration.scope);
     }).catch(function(error) {
       console.log('Service Worker registration failed:', error);
@@ -119,8 +119,8 @@
       <li>Erweiterten Kundensupport</li>
     </p>
     <div id="buy">
-      <h3>einmalig</h3>
-      <h2>€ 4,99</h2>
+      <h3>monatlich</h3>
+      <h2>€ 9,99</h2>
     <button class="primaryButton">Jetzt kaufen</button>
     </div>
   </aside>

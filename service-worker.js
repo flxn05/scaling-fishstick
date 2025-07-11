@@ -5,8 +5,8 @@ const CACHE_NAME = 'scaling-fishstick-cache-v1';
 const FILES_TO_CACHE = [
   '/',
   'scaling-fishstick/index.html',
-  'scaling-fishstick//styles.css', // Add your CSS file path
-  '/scaling-fishstick/script.js',  // Add your JS file path
+  '/scaling-fishstick/styles.css', // Corrected CSS file path
+  '/scaling-fishstick/script.js',  // Corrected JS file path
   '/scaling-fishstick/analyse.png',
   '/scaling-fishstick/pro.png',
   '/scaling-fishstick/product.png',
@@ -14,7 +14,7 @@ const FILES_TO_CACHE = [
   '/scaling-fishstick/home/71122-537102350_medium.mp4',
   '/scaling-fishstick/home/product.jpg',
   '/scaling-fishstick/home/styles.css',
-  '/scaling-fishstick/home/video_sea',
+  '/scaling-fishstick/home/video_sea.mp4', // Added missing file extension
 ];
 
 // Install event - cache files
