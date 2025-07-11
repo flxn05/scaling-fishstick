@@ -17,15 +17,19 @@ const FILES_TO_CACHE = [
   '/scaling-fishstick/home/video_sea.mp4', // Added missing file extension
 ];
 
-// Install event - cache files
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log('Opened cache');
-      return cache.addAll(FILES_TO_CACHE);
+    caches.open(CACHE_NAME).then(async (cache) => {
+      try {
+        await cache.addAll(FILES_TO_CACHE);
+        console.log('Alle Dateien gecached');
+      } catch (error) {
+        console.error('Fehler beim Cachen:', error);
+      }
     })
   );
 });
+
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
